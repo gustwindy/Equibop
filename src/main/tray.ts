@@ -216,7 +216,7 @@ export async function initTray(win: BrowserWindow, setIsQuitting: (val: boolean)
 
                 const pixmap = await getCachedTrayPixmap(trayVariant);
                 nativeSNI.setStatusNotifierIcon(pixmap);
-                nativeSNI.setStatusNotifierTitle("Equibop");
+                nativeSNI.setStatusNotifierTitle("Waftcord");
 
                 const menuItems = [
                     { id: 1, label: win.isVisible() ? "Hide" : "Open", enabled: true, visible: true },
@@ -226,7 +226,7 @@ export async function initTray(win: BrowserWindow, setIsQuitting: (val: boolean)
                     { id: 10, label: "Configure Rich Presence", enabled: true, visible: true },
                     { id: 12, type: "separator" as const, enabled: true, visible: true },
                     { id: 3, label: "Repair Equicord", enabled: true, visible: true },
-                    { id: 4, label: "Reset Equibop", enabled: true, visible: true },
+                    { id: 4, label: "Reset Waftcord", enabled: true, visible: true },
                     { id: 7, type: "separator" as const, enabled: true, visible: true },
                     { id: 8, label: "Restart", enabled: true, visible: true },
                     { id: 9, label: "Quit", enabled: true, visible: true }

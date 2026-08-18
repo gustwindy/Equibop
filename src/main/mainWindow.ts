@@ -85,7 +85,7 @@ function initMenuBar(win: BrowserWindow) {
 
     const subMenu = [
         {
-            label: "About Equibop",
+            label: "About Waftcord (Equibop)",
             click: createAboutWindow
         },
         {
@@ -96,14 +96,14 @@ function initMenuBar(win: BrowserWindow) {
                 app.relaunch();
                 app.quit();
             },
-            toolTip: "Equibop will automatically restart after this operation"
+            toolTip: "Waftcord will automatically restart after this operation"
         },
         {
-            label: "Reset Equibop",
+            label: "Reset Waftcord",
             async click() {
                 await clearData(win);
             },
-            toolTip: "Equibop will automatically restart after this operation"
+            toolTip: "Waftcord will automatically restart after this operation"
         },
         {
             label: "Relaunch",
@@ -280,7 +280,7 @@ function initStaticTitle(win: BrowserWindow) {
 
     addSettingsListener("staticTitle", enabled => {
         if (enabled) {
-            win.setTitle("Equibop");
+            win.setTitle("Waftcord");
             win.on("page-title-updated", listener);
         } else {
             win.off("page-title-updated", listener);
@@ -376,7 +376,7 @@ function buildBrowserWindowOptions(): BrowserWindowConstructorOptions {
     }
 
     if (staticTitle) {
-        options.title = "Equibop";
+        options.title = "Waftcord";
     }
 
     if (process.platform === "darwin") {
