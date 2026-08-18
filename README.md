@@ -12,3 +12,4 @@ Waftcord is a (personal) fork of [a fork](https://github.com/Equicord/Equibop) o
 
 ## **Building**
 - im a bum and used pnpm instead of bun but just follow the one from the actual repo
+- if you're confident we have the same setup use `lazy-build.sh` and it'll install for u
