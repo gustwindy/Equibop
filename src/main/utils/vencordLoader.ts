@@ -8,7 +8,7 @@ import { existsSync } from "fs";
 import { join } from "path";
 
 import { USER_AGENT } from "../constants";
-import { VENCORD_DIR } from "../vencordDir";
+import { SHELTER_DIR, VENCORD_DIR } from "../vencordDir";
 import { downloadFile, fetchie } from "./http";
 
 const API_BASE = "https://api.github.com";
@@ -43,6 +43,12 @@ export async function downloadVencordAsar() {
         {},
         { retryOnNetworkError: true }
     );
+    await downloadFile(
+        "https://raw.githubusercontent.com/uwu/shelter-builds/refs/heads/main/shelter.js",
+        SHELTER_DIR,
+        {},
+        { retryOnNetworkError: true }
+    );
 }
 
 export function isValidVencordInstall(dir: string) {
@@ -50,7 +56,7 @@ export function isValidVencordInstall(dir: string) {
 }
 
 export async function ensureVencordFiles() {
-    if (existsSync(VENCORD_DIR)) return;
+    if (existsSync(VENCORD_DIR) && existsSync(SHELTER_DIR)) return;
 
     await downloadVencordAsar();
 }

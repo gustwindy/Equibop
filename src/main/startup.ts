@@ -122,7 +122,7 @@ function init() {
     if (isDeckGameMode) nativeTheme.themeSource = "dark";
 
     app.whenReady().then(async () => {
-        if (process.platform === "win32") app.setAppUserModelId("org.equicord.equibop");
+        if (process.platform === "win32") app.setAppUserModelId("dev.guhw.waftcord");
 
         registerScreenShareHandler();
         registerMediaPermissionsHandler();

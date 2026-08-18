@@ -537,7 +537,7 @@ StatusNotifierItem::StatusNotifierItem()
         return;
     }
 
-    service_name = "org.equicord.equibop.StatusNotifierItem";
+    service_name = "dev.guhw.waftcord.StatusNotifierItem";
     object_path = "/StatusNotifierItem";
 }
 

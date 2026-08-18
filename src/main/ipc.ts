@@ -40,7 +40,7 @@ import { handle, handleSync } from "./utils/ipcWrappers";
 import { PopoutWindows } from "./utils/popout";
 import { isDeckGameMode, showGamePage } from "./utils/steamOS";
 import { isValidVencordInstall } from "./utils/vencordLoader";
-import { VENCORD_DIR } from "./vencordDir";
+import { SHELTER_DIR, VENCORD_DIR } from "./vencordDir";
 
 handleSync(IpcEvents.GET_VENCORD_PRELOAD_SCRIPT, () => readFileSync(join(VENCORD_DIR, "preload.js"), "utf-8"));
 handleSync(IpcEvents.GET_VENCORD_RENDERER_SCRIPT, () => readFileSync(join(VENCORD_DIR, "renderer.js"), "utf-8"));
@@ -48,6 +48,7 @@ handleSync(IpcEvents.GET_VENCORD_RENDERER_SCRIPT, () => readFileSync(join(VENCOR
 const VESKTOP_RENDERER_JS_PATH = join(__dirname, "renderer.js");
 const VESKTOP_RENDERER_CSS_PATH = join(__dirname, "renderer.css");
 handleSync(IpcEvents.GET_VESKTOP_RENDERER_SCRIPT, () => readFileSync(VESKTOP_RENDERER_JS_PATH, "utf-8"));
+handleSync(IpcEvents.GET_SHELTER_SCRIPT, () => readFileSync(SHELTER_DIR, "utf-8"));
 handle(IpcEvents.GET_VESKTOP_RENDERER_CSS, () => readFile(VESKTOP_RENDERER_CSS_PATH, "utf-8"));
 
 if (IS_DEV) {

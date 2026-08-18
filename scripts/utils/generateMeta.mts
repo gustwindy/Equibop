@@ -36,7 +36,7 @@ function generateDescription(description: string, descriptionNode: Element) {
     }
 }
 
-const releases = await fetch("https://api.github.com/repos/Equicord/Equibop/releases", {
+const releases = await fetch("https://api.github.com/repos/gustwindy/Equibop/releases", {
     headers: {
         Accept: "application/vnd.github+json",
         "X-Github-Api-Version": "2022-11-28"
@@ -47,7 +47,7 @@ const latestReleaseInformation = releases[0];
 
 const metaInfo = await (async () => {
     for (const release of releases) {
-        const metaAsset = release.assets.find((a: any) => a.name === "org.equicord.equibop.metainfo.xml");
+        const metaAsset = release.assets.find((a: any) => a.name === "dev.guhw.waftcord.metainfo.xml");
         if (metaAsset) return fetch(metaAsset.browser_download_url).then(res => res.text());
     }
 })();
@@ -89,5 +89,5 @@ const output = xmlFormat(new XMLSerializer().serializeToString(parser), {
 });
 
 await mkdir("./dist", { recursive: true });
-await fs.writeFile("./dist/org.equicord.equibop.metainfo.xml", output, "utf-8");
-console.log("Updated meta information written to ./dist/org.equicord.equibop.metainfo.xml");
+await fs.writeFile("./dist/dev.guhw.waftcord.metainfo.xml", output, "utf-8");
+console.log("Updated meta information written to ./dist/dev.guhw.waftcord.metainfo.xml");

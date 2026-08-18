@@ -13,3 +13,6 @@ import { State } from "./settings";
 export const VENCORD_DIR = State.store.equicordDir
     ? join(State.store.equicordDir, "equibop")
     : join(SESSION_DATA_DIR, "equicord.asar");
+export const SHELTER_DIR = State.store.equicordDir
+    ? join(State.store.equicordDir, "equibop")
+    : join(SESSION_DATA_DIR, "shelter.js");
