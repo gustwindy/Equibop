@@ -39,6 +39,14 @@ export type SettingsComponent = ComponentType<{ settings: typeof Settings.store 
 
 const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>> = {
     "Discord Branch": [DiscordBranchPicker],
+    "Waftcord Extras": [
+        {
+            key: "loadShelter",
+            title: "Enable Shelter",
+            description: "Loads the shelter mod loader",
+            defaultValue: true
+        }
+    ],
     "System Startup & Performance": [
         AutoStartToggle,
         {
