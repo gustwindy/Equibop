@@ -4,12 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { ipcRenderer } from "electron/renderer";
 import { existsSync } from "fs";
 import { join } from "path";
-import { IpcEvents } from "shared/IpcEvents";
 
 import { USER_AGENT } from "../constants";
+import { Settings } from "../settings";
 import { SHELTER_DIR, VENCORD_DIR } from "../vencordDir";
 import { downloadFile, fetchie } from "./http";
 
@@ -39,7 +38,7 @@ export async function githubGet(endpoint: string) {
 }
 
 export async function downloadVencordAsar() {
-    if (ipcRenderer.sendSync(IpcEvents.GET_SETTINGS).useWaftcordForkOfEquicord ?? true) {
+    if (Settings.plain.useWaftcordForkOfEquicord ?? true) {
         await downloadFile(
             "https://github.com/gustwindy/Equicord-userplugins/releases/latest/download/equibop.asar",
             VENCORD_DIR,
