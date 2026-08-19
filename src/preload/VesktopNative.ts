@@ -35,7 +35,8 @@ ipcRenderer.on(IpcEvents.DEVTOOLS_CLOSED, () => onDevtoolsClose());
 
 export const VesktopNative = {
     app: {
-        relaunch: () => invoke<void>(IpcEvents.RELAUNCH),
+        force_update: () => invoke<void>(IpcEvents.FORCE_UPDATE),
+        relaunch: () => sendSync<void>(IpcEvents.RELAUNCH),
         getVersion: () => sendSync<void>(IpcEvents.GET_VERSION),
         getGitHash: () => sendSync<string>(IpcEvents.GET_GIT_HASH),
         isDevBuild: () => IS_DEV,

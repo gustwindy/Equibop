@@ -17,7 +17,6 @@ import {
     screen,
     session
 } from "electron";
-import { relaunchApp } from "renderer/utils";
 import { IpcCommands, IpcEvents } from "shared/IpcEvents";
 import { STATIC_DIR } from "shared/paths";
 import { isTruthy } from "shared/utils/guards";
@@ -39,6 +38,7 @@ import { darwinURL } from "./startup";
 import { destroyTray, initTray } from "./tray";
 import { clearData } from "./utils/clearData";
 import { makeLinksOpenExternally } from "./utils/makeLinksOpenExternally";
+import { relaunchApp } from "./utils/relaunchApp";
 import { applyDeckKeyboardFix, askToApplySteamLayout, isDeckGameMode } from "./utils/steamOS";
 import { downloadVencordAsar, ensureVencordFiles } from "./utils/vencordLoader";
 import { VENCORD_DIR } from "./vencordDir";

@@ -5,8 +5,6 @@
  */
 
 import { Button } from "@equicord/types/components";
-import { downloadVencordAsar } from "main/utils/vencordLoader";
-import { relaunchApp } from "renderer/utils";
 
 import { SettingsComponent } from "./Settings";
 
@@ -14,8 +12,8 @@ export const ForceUpdate: SettingsComponent = () => {
     return (
         <Button
             onClick={async () => {
-                await downloadVencordAsar();
-                relaunchApp();
+                console.log("aaaaa");
+                await VesktopNative.app.force_update();
             }}
         >
             Force update (Will auto restart)

@@ -38,8 +38,9 @@ import { Settings, State } from "./settings";
 import { enableHardwareAcceleration } from "./startup";
 import { handle, handleSync } from "./utils/ipcWrappers";
 import { PopoutWindows } from "./utils/popout";
+import { relaunchApp } from "./utils/relaunchApp";
 import { isDeckGameMode, showGamePage } from "./utils/steamOS";
-import { isValidVencordInstall } from "./utils/vencordLoader";
+import { downloadVencordAsar, isValidVencordInstall } from "./utils/vencordLoader";
 import { SHELTER_DIR, VENCORD_DIR } from "./vencordDir";
 
 handleSync(IpcEvents.GET_VENCORD_PRELOAD_SCRIPT, () => readFileSync(join(VENCORD_DIR, "preload.js"), "utf-8"));
@@ -99,6 +100,12 @@ handle(IpcEvents.RELAUNCH, async () => {
         app.relaunch(options);
     }
     app.exit();
+});
+
+handle(IpcEvents.FORCE_UPDATE, async () => {
+    console.log("hi forcing upd");
+    await downloadVencordAsar();
+    relaunchApp();
 });
 
 handleSync(IpcEvents.IS_USING_CUSTOM_VENCORD_DIR, () => !!State.store.equicordDir);

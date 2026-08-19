@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { ipcRenderer } from "electron";
+import { ipcRenderer } from "electron/renderer";
 import { existsSync } from "fs";
 import { join } from "path";
 import { IpcEvents } from "shared/IpcEvents";
