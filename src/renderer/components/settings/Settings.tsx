@@ -16,6 +16,7 @@ import { ArRPCSettingsButton } from "./ArRPCSettings";
 import { AutoStartToggle } from "./AutoStartToggle";
 import { DeveloperOptionsButton } from "./DeveloperOptions";
 import { DiscordBranchPicker } from "./DiscordBranchPicker";
+import { ForceUpdate } from "./ForceUpdate";
 import { NotificationBadgeToggle } from "./NotificationBadgeToggle";
 import { OutdatedVesktopWarning } from "./OutdatedVesktopWarning";
 import { Updater } from "./Updater";
@@ -51,7 +52,8 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
             title: "Use Waftcord User Plugins",
             description: "Loads waftcord's Equicord fork instead (You need to force update after changing)",
             defaultValue: true
-        }
+        },
+        ForceUpdate
     ],
     "System Startup & Performance": [
         AutoStartToggle,

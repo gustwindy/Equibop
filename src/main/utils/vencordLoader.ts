@@ -4,8 +4,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { ipcRenderer } from "electron";
 import { existsSync } from "fs";
 import { join } from "path";
+import { IpcEvents } from "shared/IpcEvents";
 
 import { USER_AGENT } from "../constants";
 import { SHELTER_DIR, VENCORD_DIR } from "../vencordDir";
@@ -37,12 +39,21 @@ export async function githubGet(endpoint: string) {
 }
 
 export async function downloadVencordAsar() {
-    await downloadFile(
-        "https://github.com/Equicord/Equicord/releases/latest/download/equibop.asar",
-        VENCORD_DIR,
-        {},
-        { retryOnNetworkError: true }
-    );
+    if (ipcRenderer.sendSync(IpcEvents.GET_SETTINGS).useWaftcordForkOfEquicord ?? true) {
+        await downloadFile(
+            "https://github.com/gustwindy/Equicord-userplugins/releases/latest/download/equibop.asar",
+            VENCORD_DIR,
+            {},
+            { retryOnNetworkError: true }
+        );
+    } else {
+        await downloadFile(
+            "https://github.com/Equicord/Equicord/releases/latest/download/equibop.asar",
+            VENCORD_DIR,
+            {},
+            { retryOnNetworkError: true }
+        );
+    }
     await downloadFile(
         "https://raw.githubusercontent.com/uwu/shelter-builds/refs/heads/main/shelter.js",
         SHELTER_DIR,

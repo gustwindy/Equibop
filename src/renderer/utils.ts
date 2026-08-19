@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
+import { app } from "electron";
+import { destroyTray } from "main/tray";
+
 // Discord deletes this from the window so we need to capture it in a variable
 export const { localStorage } = window;
 
@@ -20,6 +23,12 @@ function getPlatform() {
     if (platform.startsWith("mac")) return "macos";
     if (platform.startsWith("linux")) return "linux";
     return "unknown";
+}
+
+export function relaunchApp() {
+    destroyTray();
+    app.relaunch();
+    app.quit();
 }
 
 export const isWindows = getPlatform() === "windows";

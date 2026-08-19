@@ -17,6 +17,7 @@ import {
     screen,
     session
 } from "electron";
+import { relaunchApp } from "renderer/utils";
 import { IpcCommands, IpcEvents } from "shared/IpcEvents";
 import { STATIC_DIR } from "shared/paths";
 import { isTruthy } from "shared/utils/guards";
@@ -92,9 +93,7 @@ function initMenuBar(win: BrowserWindow) {
             label: "Force Update Waftcord & Shelter",
             async click() {
                 await downloadVencordAsar();
-                destroyTray();
-                app.relaunch();
-                app.quit();
+                relaunchApp();
             },
             toolTip: "Waftcord will automatically restart after this operation"
         },
@@ -109,9 +108,7 @@ function initMenuBar(win: BrowserWindow) {
             label: "Relaunch",
             accelerator: "CmdOrCtrl+Shift+R",
             click() {
-                destroyTray();
-                app.relaunch();
-                app.quit();
+                relaunchApp();
             }
         },
         ...(!isDarwin
