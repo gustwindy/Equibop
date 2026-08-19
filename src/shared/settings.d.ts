@@ -15,6 +15,8 @@ export interface Settings {
         | "default_public_and_private_interfaces"
         | "disable_non_proxied_udp";
     loadShelter?: boolean;
+    useWaftcordForkOfEquicord?: boolean;
+
     tray?: boolean;
     minimizeToTray?: boolean;
     autoStartMinimized?: boolean;

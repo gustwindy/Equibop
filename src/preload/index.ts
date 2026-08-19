@@ -25,6 +25,6 @@ Function(
 webFrame.executeJavaScript(ipcRenderer.sendSync(IpcEvents.GET_VENCORD_RENDERER_SCRIPT));
 webFrame.executeJavaScript(ipcRenderer.sendSync(IpcEvents.GET_VESKTOP_RENDERER_SCRIPT));
 
-if (ipcRenderer.sendSync(IpcEvents.GET_SETTINGS).loadShelter) {
+if (ipcRenderer.sendSync(IpcEvents.GET_SETTINGS).loadShelter ?? true) {
     webFrame.executeJavaScript(ipcRenderer.sendSync(IpcEvents.GET_SHELTER_SCRIPT));
 }

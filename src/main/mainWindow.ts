@@ -89,7 +89,7 @@ function initMenuBar(win: BrowserWindow) {
             click: createAboutWindow
         },
         {
-            label: "Force Update Equicord",
+            label: "Force Update Waftcord & Shelter",
             async click() {
                 await downloadVencordAsar();
                 destroyTray();

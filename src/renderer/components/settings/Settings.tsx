@@ -45,6 +45,12 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
             title: "Enable Shelter",
             description: "Loads the shelter mod loader",
             defaultValue: true
+        },
+        {
+            key: "useWaftcordForkOfEquicord",
+            title: "Use Waftcord User Plugins",
+            description: "Loads waftcord's Equicord fork instead (You need to force update after changing)",
+            defaultValue: true
         }
     ],
     "System Startup & Performance": [
